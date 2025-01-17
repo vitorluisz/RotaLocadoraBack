@@ -12,7 +12,7 @@ namespace RotaLocadora.Service.UsuariosService
             _db = db;
         }
 
-        public async Task<UsuariosModel> CreateFuncionario(UsuariosModel novoFuncionario)
+        public async Task<ServiceResponse<List<UsuariosModel>>> CreateFuncionario(UsuariosModel novoFuncionario)
         {
             ServiceResponse<List<UsuariosModel>> serviceResponse = new ServiceResponse<List<UsuariosModel>>();
 
@@ -31,10 +31,11 @@ namespace RotaLocadora.Service.UsuariosService
             }
             catch (Exception ex)
             {
-
+                serviceResponse.Mensagem = ex.Message;
+                serviceResponse.Sucesso = false;
             }
 
-            return novoFuncionario;
+            return serviceResponse;
         }
 
     }

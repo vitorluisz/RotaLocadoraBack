@@ -13,7 +13,7 @@ namespace RotaLocadora.DataContext
 
         public DbSet<CarsModel> Cars { get; set; }
         public DbSet<UsuariosModel> Usuarios { get; set; }
-        public DbSet<HistoryActivitiesModel> Historico { get; set; }
+        public DbSet<HistoryActivitiesModel> HistoryActivities { get; set; }
 
     }
 }

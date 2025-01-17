@@ -7,16 +7,16 @@ namespace RotaLocadora.Controllers
     [ApiController]
     public class UsuariosController : Controller
     {
-        private readonly IUsuariosInterface _IFuncionarioInterface;
-        public UsuariosController(IUsuariosInterface funcionarioInterface)
+        private readonly IUsuariosInterface _IUsuariosInterface;
+        public UsuariosController(IUsuariosInterface usuariosInterface)
         {
-            _IFuncionarioInterface = funcionarioInterface;
+            _IUsuariosInterface = usuariosInterface;
         }
 
         [HttpPost]
-        public async Task<ActionResult<ServiceResponse<List<UsuariosController>>>> CreateFuncionario(UsuariosModel novoFuncionario)
+        public async Task<ActionResult<ServiceResponse<List<UsuariosController>>>> CreateUsuario(UsuariosModel novoUsuario)
         {
-            return Ok(await _IFuncionarioInterface.CreateFuncionario(novoFuncionario));
+            return Ok(await _IUsuariosInterface.CreateUsuario(novoUsuario));
         }
     }
 }

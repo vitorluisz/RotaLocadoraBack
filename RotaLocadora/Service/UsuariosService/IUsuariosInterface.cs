@@ -4,7 +4,6 @@ namespace RotaLocadora.Service.UsuariosService
 {
     public interface IUsuariosInterface
     {
-
-        Task<ServiceResponse<List<UsuariosModel>>> CreateFuncionario(UsuariosModel novoUsuario);
+        Task<ServiceResponse<List<UsuariosModel>>> CreateUsuario(UsuariosModel novoUsuario);
     }
 }
