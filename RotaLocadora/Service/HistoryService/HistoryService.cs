@@ -3,7 +3,7 @@ using RotaLocadora.Model;
 
 namespace RotaLocadora.Service.HistoryService
 {
-    public class HistoryService
+    public class HistoryService : IHistoryInterface
     {
         readonly private ApplicationDbContext _db;
 

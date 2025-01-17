@@ -13,9 +13,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddScoped<IUsuariosInterface, UsuariosService>();
-//builder.Services.AddScoped<ICarsInterface, CarsService>();
-//builder.Services.AddScoped<IHistoryInterface, HistoryService>();
+builder.Services.AddScoped<IUsuariosInterface, UsuariosService>();
+builder.Services.AddScoped<ICarsInterface, CarsService>();
+builder.Services.AddScoped<IHistoryInterface, HistoryService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {

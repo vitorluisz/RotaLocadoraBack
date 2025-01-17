@@ -4,7 +4,7 @@ using RotaLocadora.Model;
 
 namespace RotaLocadora.Service.CarsService
 {
-    public class CarsService
+    public class CarsService : ICarsInterface
     {
         readonly private ApplicationDbContext _db;
 
@@ -31,6 +31,32 @@ namespace RotaLocadora.Service.CarsService
                 serviceResponse.Mensagem = ex.Message;
                 serviceResponse.Sucesso = false;
 
+            }
+
+            return serviceResponse;
+        }
+
+        public async Task<ServiceResponse<CarsModel>> GetCarById(int id)
+        {
+            ServiceResponse<CarsModel> serviceResponse = new ServiceResponse<CarsModel>();
+
+            try
+            {
+                CarsModel car = _db.Cars.FirstOrDefault(x => x.Id == id);
+                serviceResponse.Dados = car;
+
+                if (car == null)
+                {
+                    serviceResponse.Dados = null;
+                    serviceResponse.Mensagem = "Usuário não localizado.";
+                    serviceResponse.Sucesso = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Mensagem = ex.Message;
+                serviceResponse.Sucesso = false;
             }
 
             return serviceResponse;

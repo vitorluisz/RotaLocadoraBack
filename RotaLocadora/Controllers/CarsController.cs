@@ -5,6 +5,8 @@ using RotaLocadora.Service.UsuariosService;
 
 namespace RotaLocadora.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class CarsController : Controller
     {
         private readonly ICarsInterface _ICarsInterface;
@@ -17,6 +19,12 @@ namespace RotaLocadora.Controllers
         public async Task<ActionResult<ServiceResponse<List<CarsModel>>>> GetCars()
         {
             return Ok(await _ICarsInterface.GetCars());
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ServiceResponse<List<CarsModel>>>> GetCarById(int id)
+        {
+            return Ok(await _ICarsInterface.GetCarById(id));
         }
 
         [HttpPost]

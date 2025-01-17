@@ -6,6 +6,7 @@ namespace RotaLocadora.Service.CarsService
     {
         Task<ServiceResponse<List<CarsModel>>> CreateCars(CarsModel car);
         Task<ServiceResponse<List<CarsModel>>> GetCars();
+        Task<ServiceResponse<CarsModel>> GetCarById(int id);
         Task<ServiceResponse<List<CarsModel>>> UpdateCars(CarsModel car);
         Task<ServiceResponse<List<CarsModel>>> DeleteCars(int id);
     }

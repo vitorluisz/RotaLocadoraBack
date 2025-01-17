@@ -4,6 +4,8 @@ using RotaLocadora.Service.HistoryService;
 
 namespace RotaLocadora.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class HistoryController : Controller
     {
         private readonly IHistoryInterface _IHistoryInterface;
