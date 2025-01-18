@@ -64,5 +64,32 @@ namespace RotaLocadora.Service.UsuariosService
             return serviceResponse;
         }
 
+        public async Task<ServiceResponse<UsuariosModel>> Login(UsuariosModel login)
+        {
+            ServiceResponse<UsuariosModel> serviceResponse = new ServiceResponse<UsuariosModel>();
+
+            try
+            {
+                UsuariosModel usuario = _db.Usuarios.FirstOrDefault(x => x.Senha == login.Senha && x.Email == login.Email);
+                serviceResponse.Dados = usuario;
+                serviceResponse.Mensagem = "Usuário existente";
+
+                if (usuario == null)
+                {
+                    serviceResponse.Dados = null;
+                    serviceResponse.Mensagem = "Usuário não localizado.";
+                    serviceResponse.Sucesso = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Mensagem = ex.Message;
+                serviceResponse.Sucesso = false;
+            }
+
+            return serviceResponse;
+        }
+
     }
 }

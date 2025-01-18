@@ -6,5 +6,6 @@ namespace RotaLocadora.Service.UsuariosService
     {
         Task<ServiceResponse<List<UsuariosModel>>> CreateUsuario(UsuariosModel novoUsuario);
         Task<ServiceResponse<UsuariosModel>> GetUsuarioById(int id);
+        Task<ServiceResponse<UsuariosModel>> Login(UsuariosModel login);
     }
 }

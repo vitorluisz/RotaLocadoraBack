@@ -15,16 +15,22 @@ namespace RotaLocadora.Controllers
             _IUsuariosInterface = usuariosInterface;
         }
 
-        [HttpPost]
-        public async Task<ActionResult<ServiceResponse<List<UsuariosController>>>> CreateUsuario(UsuariosModel novoUsuario)
-        {
-            return Ok(await _IUsuariosInterface.CreateUsuario(novoUsuario));
-        }
-
         [HttpGet("{id}")]
-        public async Task<ActionResult<ServiceResponse<List<CarsModel>>>> GetUsuarioById(int id)
+        public async Task<ActionResult<ServiceResponse<List<UsuariosModel>>>> GetUsuarioById(int id)
         {
             return Ok(await _IUsuariosInterface.GetUsuarioById(id));
+        }
+
+        [HttpPost("verificar-usuario")]
+        public async Task<ActionResult<ServiceResponse<string>>> Login([FromBody] UsuariosModel login)
+        {
+            return Ok(await _IUsuariosInterface.Login(login));
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<ServiceResponse<List<UsuariosModel>>>> CreateUsuario(UsuariosModel novoUsuario)
+        {
+            return Ok(await _IUsuariosInterface.CreateUsuario(novoUsuario));
         }
     }
 }
